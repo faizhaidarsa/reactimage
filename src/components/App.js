@@ -6,11 +6,13 @@ import axios from 'axios'
 class App extends Component{
     
     state={
+        keyword:'',
         images:[]
     }
 
     //function yang akan mengambil keyword dari search bar yang akan digunakan untuk request gambar
     onSearchSubmit = (keyword)=>{
+        this.setState({keyword:keyword})
         axios.get(
             'https://api.unsplash.com/search/photos',
             {
@@ -31,7 +33,7 @@ class App extends Component{
     render(){
         return <div className="container">
             <SearchBar as={this.onSearchSubmit}/>
-            <ImageList images={this.state.images}/>
+            <ImageList images={this.state.images} kata={this.state.keyword}/>
         </div>
     }
 }

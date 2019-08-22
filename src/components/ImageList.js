@@ -10,10 +10,16 @@ class ImageList extends Component{
                 src={data.urls.regular}
                 style={{width:'100%'}}
                 className='my-1'
+                alt={this.props.kata+' '+key}
                 />
             )
-        })    
-        return hasil 
+        })
+        if(hasil==''){
+            return `0 Result for ${this.props.kata}`
+        }
+        else{
+            return hasil 
+        }    
         
     }
     
